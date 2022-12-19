@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from apps.users.models import CustomUser, Paramedic, MedicalFacility
+from django.db.models import Q
 
 
 class HomepageView(TemplateView):
@@ -23,10 +24,20 @@ def profile(request):
 
 
 def doctors(request):
-    paramedic = Paramedic.objects.all()
+    search_post = request.GET.get('search')
+    if search_post:
+        paramedic = Paramedic.objects.filter(Q(last_name__icontains=search_post))
+    else:
+        # If not searched, return default posts
+        paramedic = Paramedic.objects.all()
     return render(request, 'pages/doctors.html', {'paramedic': paramedic})
 
 
 def hospitals(request):
-    hospital = MedicalFacility.objects.all()
+    search_post = request.GET.get('search')
+    if search_post:
+        hospital = MedicalFacility.objects.filter(Q(last_name__icontains=search_post))
+    else:
+        # If not searched, return default posts
+        hospital = MedicalFacility.objects.all()
     return render(request, 'pages/hospitals.html', {'hospital': hospital})

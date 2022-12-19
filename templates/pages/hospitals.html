@@ -14,6 +14,12 @@
     </div>
   </ups>
 <br>
+{# TODO: Поле поиска #}
+<form class="form-inline my-2 my-lg-0" action="{% url 'hospitals' %}">
+    <input class="form-control mr-sm-2" type="search"   placeholder="Поиск медицинского учреждения" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+<br>
     {% for item in hospital %}
         {{ item.name }}
         <a href="profile/" class="btn">Посмотреть информацию</a>
