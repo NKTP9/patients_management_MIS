@@ -1,12 +1,35 @@
-{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-
-{% block content %}
-    <div class="container">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Вход</button>
-        </form>
+<head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<ram>
+<div style="float: left; padding-right: 5px; ">
+{% load static %}
+ <img src="{% static 'images/heal.png' %}"/>
     </div>
-{% endblock %}
+    <div style="float: left;">
+    <h1>Авторизуйтесь</h1>
+    </div>
+<div class="input">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Введите ваш логин"> <br>
+        <input type="password" name="password" placeholder="Введите ваш пароль"> <br>
+        {% for message in messages %}
+        <p type="messages" id="messages">{{message}}</p>
+        {% endfor %}
+    <br>
+        <input type="submit" value="Войти"><br>
+    </form>
+</div>
+</ram>
+<br>
+Не зарегистрированы? <a href="{% url 'signup' %}" class="link">Регистрация</a><br>
+</body>
+</html>

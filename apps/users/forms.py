@@ -12,11 +12,13 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         # fields = "__all__"
-        fields = ('username', 'fio', 'gender', 'birth_date', 'groups')
+        fields = ('username', 'email', 'first_name', 'last_name', 'passport_number',
+                  'passport_series', 'patronymic', 'phone', 'policy', 'insurance_number')
 
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         # fields = "__all__"
-        fields = ('username', 'fio', 'gender', 'birth_date', 'groups')
+        fields = ('username', 'email', 'first_name', 'last_name', 'passport_number',
+                  'passport_series', 'patronymic', 'phone', 'policy', 'insurance_number')

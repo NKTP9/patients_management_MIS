@@ -2,23 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 
-from apps.users.models import CustomUser, DoctorWorkSchedule
+from apps.users.models import CustomUser
 from apps.users.forms import CustomUserCreationForm, CustomUserChangeForm
-
-
-class DoctorWorkScheduleInline(admin.TabularInline):
-    model = DoctorWorkSchedule
-    extra = 1
-    fk_name = 'doctor'
-    # max_num = 7
-
-    # Get only doctors in admin foreign key
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == "doctor":
-            kwargs["queryset"] = CustomUser.objects.filter(groups__name__in=['Врач',])
-        if db_field.name == "patient":
-            kwargs["queryset"] = CustomUser.objects.filter(groups__name__in=['Пациент',])
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 @admin.register(CustomUser)
@@ -29,7 +14,8 @@ class CustomUserAdmin(UserAdmin):
     # add_form = CustomUserCreationForm
     # form = CustomUserChangeForm
 
-    list_display = ['username', 'fio', 'email', 'gender', 'birth_date', 'user_groups_display', 'is_staff']
+    list_display = ['username', 'email', 'first_name', 'last_name', 'passport_number',
+                    'passport_series', 'patronymic', 'phone', 'policy', 'insurance_number']
 
     # Add user
     add_fieldsets = (
@@ -38,10 +24,12 @@ class CustomUserAdmin(UserAdmin):
             'Custom fields',
             {
                 'fields': (
-                    'fio',
-                    'gender',
-                    'birth_date',
-                    'groups',
+                    'passport_number',
+                    'passport_series',
+                    'patronymic',
+                    'phone',
+                    'policy',
+                    'insurance_number',
                 )
             }
         )
@@ -54,9 +42,12 @@ class CustomUserAdmin(UserAdmin):
             'Custom fields',
             {
                 'fields': (
-                    'fio',
-                    'gender',
-                    'birth_date',
+                    'passport_number',
+                    'passport_series',
+                    'patronymic',
+                    'phone',
+                    'policy',
+                    'insurance_number',
                 )
             }
         )
@@ -75,8 +66,8 @@ class CustomUserAdmin(UserAdmin):
         if obj is not None:
             print(obj)
             # if user in Врач group, display inline form
-            if obj.groups.filter(name='Врач').exists():
-                return [DoctorWorkScheduleInline]
+            # if obj.groups.filter(name='Врач').exists():
+            #     return [DoctorWorkScheduleInline]
         return []
 
     # def get_form(self, request, obj=None, **kwargs):
@@ -86,15 +77,5 @@ class CustomUserAdmin(UserAdmin):
     #     #     pass
     #     return form
 
+
 # admin.site.register(CustomUser, CustomUserAdmin)
-
-
-@admin.register(DoctorWorkSchedule)
-class DoctorWorkScheduleAdmin(admin.ModelAdmin):
-    # Get only doctors in admin foreign key
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == "doctor":
-            kwargs["queryset"] = CustomUser.objects.filter(groups__name__in=['Врач',])
-        if db_field.name == "patient":
-            kwargs["queryset"] = CustomUser.objects.filter(groups__name__in=['Пациент',])
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)

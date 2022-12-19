@@ -5,26 +5,13 @@ from datetime import date
 
 
 class CustomUser(AbstractUser):
-    GENDERS = (
-        ('m', 'Мужчина'),
-        ('f', 'Женщина'),
-    )
-
-    fio        = models.CharField('ФИО', max_length=255, default='')
-    gender     = models.CharField('Пол', max_length=1, choices=GENDERS, default='')
     birth_date = models.DateField('Дата рождения', default='2000-09-12')
+    passport_series = models.CharField('Серия паспорта', max_length=4, default='')
+    passport_number = models.CharField('Номер паспорта', max_length=6, default='')
+    patronymic = models.CharField('Отчество', max_length=20, default='')
+    phone = models.CharField('Телефон', max_length=11, default='')
+    policy = models.CharField('Полис', max_length=16, default='')
+    insurance_number = models.CharField('СНИЛС', max_length=13, default='')
 
-
-class DoctorWorkSchedule(models.Model):
-    STATES = (
-        ('w', 'Прием'),
-        ('r', 'Перерыв'),
-        ('v', 'Отпуск'),
-    )
-
-    state      = models.CharField('Статус', max_length=1, choices=STATES, default='')
-    doctor     = models.ForeignKey(CustomUser, verbose_name='Врач', on_delete=models.SET_NULL, blank=True, null=True, related_name='doctor')
-    patient    = models.ForeignKey(CustomUser, verbose_name='Пациент', on_delete=models.SET_NULL, blank=True, null=True, related_name='patient')
-    date       = models.DateField('Дата', default=date.today)
-    time_start = models.TimeField('Время от', blank=True, null=True)
-    time_end   = models.TimeField('Время до', blank=True, null=True)
+    def __str__(self):
+        return self.last_name + ' ' + self.first_name + ' ' + self.patronymic

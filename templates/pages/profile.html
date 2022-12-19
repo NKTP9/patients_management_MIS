@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<ups>
+  <div style="float: left; padding-right: 5px; ">
+{% load static %}
+ <img src="{% static 'images/heal32.png' %}"/>
+    </div>
+  </ups>
+<br>
+    ФИО: {{ user }} <br>
+    Серия и номер паспорта: {{ user.passport_series }}
+    {{ user.passport_number }} <br>
+    Дата рождения: {{ user.birth_date|date:"d.m.Y" }} <br>
+    Номер СНИЛС: {{ user.insurance_number }} <br>
+    Номер телефона: {{ user.phone }} <br>
+    Номер полиса: {{ user.policy }} <br>
+</body>
+</html>

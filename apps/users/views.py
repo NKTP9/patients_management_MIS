@@ -41,7 +41,7 @@ class SignUpView(CreateView):
 
             return redirect('homepage')
         else:
-            return render(request, self.template_name, {'form' : form })
+            return render(request, self.template_name, {'form': form})
 
 
 class LoginView(LoginView):
