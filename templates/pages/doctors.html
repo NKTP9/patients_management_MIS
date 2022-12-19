@@ -14,5 +14,10 @@
     </div>
   </ups>
 <br>
+    {% for item in paramedic %}
+        {{ item }} {# TODO: Имя #}
+        {{ item.speciality }} {# TODO: Специальность #}
+        {{ item.medical_facility }} <br> {# TODO: Место работы #}
+    {% endfor %}
 </body>
 </html>

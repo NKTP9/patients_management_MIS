@@ -14,5 +14,9 @@
     </div>
   </ups>
 <br>
+    {% for item in hospital %}
+        {{ item.name }}
+        <a href="profile/" class="btn">Посмотреть информацию</a>
+    {% endfor %}
 </body>
 </html>

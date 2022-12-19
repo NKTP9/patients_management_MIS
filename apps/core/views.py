@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from apps.users.models import CustomUser
+from apps.users.models import CustomUser, Paramedic, MedicalFacility
 
 
 class HomepageView(TemplateView):
@@ -23,8 +23,10 @@ def profile(request):
 
 
 def doctors(request):
-    return render(request, 'pages/doctors.html')
+    paramedic = Paramedic.objects.all()
+    return render(request, 'pages/doctors.html', {'paramedic': paramedic})
 
 
 def hospitals(request):
-    return render(request, 'pages/hospitals.html')
+    hospital = MedicalFacility.objects.all()
+    return render(request, 'pages/hospitals.html', {'hospital': hospital})
