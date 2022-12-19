@@ -36,7 +36,7 @@ def doctors(request):
 def hospitals(request):
     search_post = request.GET.get('search')
     if search_post:
-        hospital = MedicalFacility.objects.filter(Q(last_name__icontains=search_post))
+        hospital = MedicalFacility.objects.filter(Q(name__icontains=search_post))
     else:
         # If not searched, return default posts
         hospital = MedicalFacility.objects.all()
