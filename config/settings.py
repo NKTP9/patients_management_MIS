@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'apps.core.apps.CoreConfig',
     'apps.users.apps.UsersConfig',
-    'datetimewidget',
 ]
 
 MIDDLEWARE = [

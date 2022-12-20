@@ -1,0 +1,147 @@
+body {
+    background: white;
+    font-family:  "Arial Unicode MS", sans-serif;
+    color: #e50b0b;
+    text-align:center;
+}
+
+
+ram {
+
+    background: #dadada;
+    border: 3px solid #dadada;
+    border-radius: 30px;
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 10px;
+
+}
+
+but {
+
+    background: #ab9d9d;
+    border: 3px solid #ab9d9d;
+    border-radius: 30px;
+    padding: 0px 5px;
+    display: inline-block;
+    margin: 10px;
+    font-family:  "Arial Unicode MS", sans-serif;
+    color: #f7f6f6;
+    text-align:center;
+}
+
+.ops{
+    filter: alpha(Opacity=0);
+    opacity: 0;
+}
+
+
+
+.btn {
+
+    background: #e50b0b;
+    border: 2px solid #e50b0b;
+    border-radius: 29px;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 4px 4px;
+    box-sizing: border-box;
+    font-family:  "Arial Unicode MS", sans-serif;
+    color: #f7f6f6;
+    text-align:center;
+    font-size: 20px;
+    text-decoration: none;
+
+
+}
+
+ups {
+    background: #e50b0b;
+    border: 3px solid #e50b0b;
+    padding: 0 5px;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+
+input[type="text"] {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+input[type="email"] {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+input[type="password"] {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+.link {
+    color: #e50b0b;
+}
+
+.placeholder{
+    color: #dadada;
+}
+
+input[type="submit"] {
+    padding: 5px 50px;
+    border-radius: 4px;
+    border: 1px solid #e50b0b;
+    background: #e50b0b;
+    color: white;
+    font-size: 23px;
+    font-family:  "Arial Unicode MS", sans-serif;
+}
+
+
+input[type="search"] {
+    border: 1px solid #dadada;
+    border-radius: 30px;
+    padding: 8px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    width: 1024px;
+    height: 50px;
+}
+
+
+table{
+    position: absolute;
+    left: 30%;
+    width: 912px;
+   /* border-spacing: 2px;*/
+    border-collapse: collapse;
+    text-align: left;
+    position: absolute;
+    top: 20%;
+}
+
+th{
+    font-family:  "Twemoji", sans-serif;
+    color: #141414;
+    padding: 15px;
+    font-size: 18px;
+}
+
+td{
+    background: #ab9d9d;
+    border-bottom: 2px solid #dadada;
+    font-family:  "Twemoji", sans-serif;
+    color: white;
+    padding: 10px;
+    font-size: 19px;
+}

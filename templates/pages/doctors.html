@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/doctor.css' %}">
 </head>
 <body>
 <ups>
@@ -16,15 +16,27 @@
 <br>
 {# TODO: Поле поиска #}
 <form class="form-inline my-2 my-lg-0" action="{% url 'doctors' %}">
+    <ram>
     <input class="form-control mr-sm-2" type="search"   placeholder="Поиск врача по фамилии" aria-label="Search" name="search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button  type="submit" class="btn"><img src="{% static 'images/poisk32.png' %}" ></button>
+    </ram>
 </form>
 <br>
+<table>
+    <tr style="  background: #dadada;">
+        <th style="border-top-left-radius: 30px;">Фио</th>
+        <th>Должность</th>
+        <th>Место работы</th>
+        <th style="border-top-right-radius: 30px;"></th>
+    </tr >
     {% for item in paramedic %}
-        {{ item }} {# TODO: Имя #}
-        {{ item.speciality }} {# TODO: Специальность #}
-        {{ item.medical_facility }} <br> {# TODO: Место работы #}
-        <a href="http://127.0.0.1:8000/appointment/{{item.paramedic_id}}" class="btn" value="{{ item.paramedic_id }}">Записаться</a> <br>
+        <tr>
+        <td>{{ item }}</td> {# TODO: Имя #}
+        <td>{{ item.speciality }}</td> {# TODO: Специальность #}
+        <td>{{ item.medical_facility }}</td>  {# TODO: Место работы #}
+        <td><a href="http://127.0.0.1:8000/appointment/{{item.paramedic_id}}" class="btn" value="{{ item.paramedic_id }}">Назначить прием</a> </td>
+        </tr>
     {% endfor %}
+</table>
 </body>
 </html>

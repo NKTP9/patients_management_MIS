@@ -39,9 +39,9 @@ but {
 
 .btn {
 
-    background: #ab9d9d;
-    border: 3px solid #ab9d9d;
-    border-radius: 30px;
+    background: #e50b0b;
+    border: 2px solid #e50b0b;
+    border-radius: 29px;
     display: inline-block;
     padding: 5px 10px;
     margin: 4px 4px;
@@ -49,7 +49,7 @@ but {
     font-family:  "Arial Unicode MS", sans-serif;
     color: #f7f6f6;
     text-align:center;
-    font-size: 26px;
+    font-size: 20px;
     text-decoration: none;
 
 
@@ -140,4 +140,32 @@ p[type="messages"] {
     background-color: #FFD2D2;
     width: auto;
     display: inline-block;
+}
+
+
+table{
+    position: absolute;
+    left: 30%;
+    width: 912px;
+   /* border-spacing: 2px;*/
+    border-collapse: collapse;
+    text-align: left;
+    position: absolute;
+    top: 20%;
+}
+
+th{
+    font-family:  "Twemoji", sans-serif;
+    color: #141414;
+    padding: 15px;
+    font-size: 18px;
+}
+
+td{
+    background: #ab9d9d;
+    border-bottom: 2px solid #dadada;
+    font-family:  "Twemoji", sans-serif;
+    color: white;
+    padding: 10px;
+    font-size: 19px;
 }

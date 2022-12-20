@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
         <title>Список поликлиник</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/hospitals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hospital.css' %}">
 </head>
 <body>
 <ups>
@@ -19,13 +19,22 @@
 <form class="form-inline my-2 my-lg-0" action="{% url 'hospitals' %}">
     <ram>
     <input class="form-control mr-sm-2" type="search"   placeholder="Поиск медицинского учреждения" aria-label="Search" name="search">
-    <button  type="submit"><img src="{% static 'images/search32.png' %}" ></button>
+    <button  type="submit" class="btn"><img src="{% static 'images/poisk32.png' %}" ></button>
     </ram>
 </form>
 <br>
+
+<table>
+    <tr style="  background: #dadada;">
+        <th style="border-top-left-radius: 30px;">Название медицинского учреждения</th>
+        <th style="border-top-right-radius: 30px;"></th>
+    </tr >
     {% for item in hospital %}
-        {{ item.name }}
-        <a href="http://127.0.0.1:8000/hospital_info/{{item.medical_facility_id}}" class="btn">Посмотреть информацию</a>
+        <tr>
+        <td> {{ item.name }}</td>
+        <td><a href="http://127.0.0.1:8000/hospital_info/{{item.medical_facility_id}}" class="btn">Посмотреть информацию</a> </td>
+        </tr>
     {% endfor %}
+</table>
 </body>
 </html>
