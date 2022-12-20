@@ -4,22 +4,60 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
 <ups>
   <div style="float: left; padding-right: 5px; ">
 {% load static %}
- <img src="{% static 'images/heal32.png' %}"/>
+ <a href="http://127.0.0.1:8000/"><img src="{% static 'images/heal322.png' %}"/></a>
     </div>
   </ups>
 <br>
-    ФИО: {{ user }} <br>
-    Серия и номер паспорта: {{ user.passport_series }}
-    {{ user.passport_number }} <br>
-    Дата рождения: {{ user.birth_date|date:"d.m.Y" }} <br>
-    Номер СНИЛС: {{ user.insurance_number }} <br>
-    Номер телефона: {{ user.phone }} <br>
-    Номер полиса: {{ user.policy }} <br>
+
+<ram>
+    Ближайший прием:
+    <br>
+    <white_box>
+        Прием не назначен
+    </white_box>
+</ram>
+<prof_box>
+    <p align="left">{{ user }}</p>
+    <p align="left">Пациент</p>
+    <p align="left">Вы не прикреплены к поликлинике</p>
+</prof_box>
+
+<table>
+    <tr style="background-color: #dadada">
+        <th>Список документов</th>
+        <th>Данные</th>
+    </tr >
+    <tr style="height: 13px; border-left: 0px; border-right: 0px">
+        <td> </td>
+        <td> </td>
+    </tr>
+    <tr style="background-color: #dadada">
+        <td>Серия и номер паспорта:</td>
+        <td>{{ user.passport_series }} | {{ user.passport_number }}</td>
+    </tr>
+    <tr >
+        <td>Дата рождения:</td>
+        <td>{{ user.birth_date|date:"d.m.Y" }}</td>
+    </tr>
+    <tr style="background-color: #dadada">
+        <td>Номер СНИЛС:</td>
+        <td>{{ user.insurance_number }}</td>
+    </tr>
+    <tr >
+        <td>Номер телефона:</td>
+        <td>{{ user.phone }} </td>
+    </tr>
+    <tr style="background-color: #dadada; border-bottom: 3px solid #dadada;">
+        <td>Номер полиса:</td>
+        <td>{{ user.policy }}  </td>
+    </tr>
+</table>
+
 </body>
 </html>

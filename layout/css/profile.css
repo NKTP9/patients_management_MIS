@@ -1,8 +1,9 @@
 body {
     background: white;
     font-family:  "Arial Unicode MS", sans-serif;
-    color: #e50b0b;
+    color: #141414;
     text-align:center;
+    font-size: 24px;
 }
 
 
@@ -11,10 +12,53 @@ ram {
     background: #dadada;
     border: 3px solid #dadada;
     border-radius: 30px;
+    font-family:  "Arial Black", sans-serif;
+    color: #f8f8f8;
+    text-align:center;
+    font-size: 24px;
     padding: 5px 5px;
     display: inline-block;
     margin: 10px;
+    position: absolute;
+    right: 25%;
 
+}
+
+white_box{
+    background: #f8f8f8;
+    border: 3px solid #f8f8f8;
+    border-radius: 15px;
+    font-family:  "Arial Unicode MS", sans-serif;
+    color: #141414;
+    text-align:center;
+    font-size: 20px;
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+table{
+    position: absolute;
+    left: 30%;
+    width: 912px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    text-align: left;
+    position: absolute;
+    top: 30%;
+}
+
+tr{
+    border-left: 3px solid #dadada;
+    border-right: 3px solid #dadada;
+}
+
+
+
+prof_box{
+    background: white;
+    position: absolute;
+    left: 30%;
 }
 
 hello {
@@ -25,6 +69,7 @@ hello {
     padding: 5px 5px;
     display: inline-block;
     margin: 10px;
+    float: right;
 
 }
 
@@ -60,6 +105,22 @@ but {
     color: #f7f6f6;
     text-align:center;
     font-size: 33px;
+    text-decoration: none;
+
+}
+
+.hello_btn {
+
+    background: #ab9d9d;
+    border: 3px solid #ab9d9d;
+    border-radius: 30px;
+    padding: 0px 5px;
+    display: inline-block;
+    margin: 10px;
+    font-family:  "Arial Unicode MS", sans-serif;
+    color: #f7f6f6;
+    text-align:center;
+    font-size: 20px;
     text-decoration: none;
 
 }
