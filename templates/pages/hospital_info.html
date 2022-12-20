@@ -6,10 +6,22 @@
     <title>{{ hospital.name }}</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/hospital_info.css' %}">
+    <title>Информация о поликлинике</title>
 </head>
 <body>
-<div id='map' style='width: 300px; height: 300px;'></div>
+<ups>
+  <div style="float: left; padding-right: 5px; ">
+{% load static %}
+ <a href="http://127.0.0.1:8000/"><img src="{% static 'images/heal322.png' %}"/></a>
+    </div>
+  </ups>
+<prof_box>
+    <p align="left">{{ hospital.name }}</p>
+    <p align="left">Адрес: {{ hospital.address }}</p> <br>
+
+<ram>
+<div id='map' style='width: 200px; height: 200px; border-radius: 30px;'></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoibmt0bmt0OTAiLCJhIjoiY2xidnppZThrMHMxejN3bXM4Z2pwa3cycyJ9.d3ljGuVvFlb_KrHj4pRDgQ';
   var map = new mapboxgl.Map({
@@ -18,9 +30,11 @@
         center: [{{hospital.coordinates}}],
         zoom: 16
   });
-</script> <br>
-    Название: {{ hospital.name }} <br>
-    Адрес: {{ hospital.address }} <br>
-    Контактный телефон: {{ hospital.contact_phone }} <br>
+</script>
+</ram>
+    <br>
+    <p align="left">Контактный телефон:</p>
+    <p align="left">{{ hospital.contact_phone }}</p><br>
+</prof_box>
 </body>
 </html>
