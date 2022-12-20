@@ -4,27 +4,25 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/hospitals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
 <ups>
   <div style="float: left; padding-right: 5px; ">
 {% load static %}
- <img src="{% static 'images/heal322.png' %}"/>
+ <img src="{% static 'images/heal32.png' %}"/>
     </div>
   </ups>
 <br>
 {# TODO: Поле поиска #}
 <form class="form-inline my-2 my-lg-0" action="{% url 'hospitals' %}">
-    <ram>
     <input class="form-control mr-sm-2" type="search"   placeholder="Поиск медицинского учреждения" aria-label="Search" name="search">
-    <button class="btn" type="submit"><img src="{% static 'images/search32.png' %}" ></button>
-    </ram>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 <br>
     {% for item in hospital %}
         {{ item.name }}
-        <a href="profile/" class="btn">Посмотреть информацию</a>
+        <a href="http://127.0.0.1:8000/hospital_info/{{item.medical_facility_id}}" class="btn">Посмотреть информацию</a>
     {% endfor %}
 </body>
 </html>
