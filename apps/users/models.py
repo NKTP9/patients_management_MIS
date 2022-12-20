@@ -52,10 +52,11 @@ class MedicalFacility(models.Model):
     medical_facility_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=255, blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
+    contact_phone = models.CharField(max_length=16, blank=True, null=True)
+    coordinates = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        managed = False
         db_table = 'medical_facility'

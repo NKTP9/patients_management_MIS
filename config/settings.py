@@ -83,9 +83,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgre',
-        'HOST': 'localhost',
+        'USER': 'sgpostgres',
+        'PASSWORD': 'yKNXPxBGO@Pluo7V',
+        'HOST': 'SG-abrupt-money-5595-4233-pgsql-master.servers.mongodirector.com',
         'PORT': '5432',
     }
 }

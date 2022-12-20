@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from apps.users.models import CustomUser, Paramedic, MedicalFacility
@@ -41,3 +42,11 @@ def hospitals(request):
         # If not searched, return default posts
         hospital = MedicalFacility.objects.all()
     return render(request, 'pages/hospitals.html', {'hospital': hospital})
+
+
+def get_hospital(request, medical_facility_id):
+    try:
+        hospital = MedicalFacility.objects.get(medical_facility_id=medical_facility_id)
+        return render(request, 'pages/hospital_info.html', {"hospital": hospital})
+    except MedicalFacility.DoesNotExist:
+        raise Http404

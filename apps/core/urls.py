@@ -10,5 +10,5 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('doctors/', views.doctors, name="doctors"),
     path('hospitals/', views.hospitals, name="hospitals"),
-
+    path('hospital_info/<int:medical_facility_id>', views.get_hospital, name="get_hospital"),
 ]
