@@ -24,6 +24,7 @@
         {{ item }} {# TODO: Имя #}
         {{ item.speciality }} {# TODO: Специальность #}
         {{ item.medical_facility }} <br> {# TODO: Место работы #}
+        <a href="http://127.0.0.1:8000/appointment/{{item.paramedic_id}}" class="btn" value="{{ item.paramedic_id }}">Записаться</a> <br>
     {% endfor %}
 </body>
 </html>

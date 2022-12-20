@@ -50,3 +50,12 @@ def get_hospital(request, medical_facility_id):
         return render(request, 'pages/hospital_info.html', {"hospital": hospital})
     except MedicalFacility.DoesNotExist:
         raise Http404
+
+
+def appointment(request, paramedic_id):
+    try:
+        doctor = Paramedic.objects.get(paramedic_id=paramedic_id)
+        current_user = CustomUser.objects.get(id=request.user.id)
+        return render(request, 'pages/appointment.html', {"doctor": doctor})
+    except Paramedic.DoesNotExist:
+        raise Http404

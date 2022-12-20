@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from apps.users.models import CustomUser
+from apps.users.models import CustomUser, Paramedic
 
 
 class CustomUserCreationForm(UserCreationForm):

@@ -14,7 +14,6 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('homepage')
     template_name = 'users/signup.html'
 
-    # Set user Group on registration
     def post(self, request, *args, **kwargs):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -24,11 +23,6 @@ class SignUpView(CreateView):
             # One user Group
             user_group = Group.objects.get(name=form.cleaned_data['groups'])
             user.groups.add(user_group)
-
-            # Multiple user Groups
-            # for form_ug in form.cleaned_data['groups']:
-            #     user_group = Group.objects.get(name=form_ug.name)
-            #     user.groups.add(user_group)
 
             # logout previouse user
             logout(request)
