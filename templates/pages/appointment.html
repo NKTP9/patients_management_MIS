@@ -1,11 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Запись</title>
+    <link rel="stylesheet" href="{% static 'css/appointment.css' %}">
 </head>
 <body>
-    Вы записываетесь к: {{ doctor }} <br>
-    Больница: {{ doctor.medical_facility.name }}
+<ups>
+  <div style="float: left; padding-right: 5px; ">
+{% load static %}
+ <a href="http://127.0.0.1:8000/"><img src="{% static 'images/heal322.png' %}"/></a>
+    </div>
+  </ups>
+    <p style="color: #141414">Вы записываетесь к: {{ doctor }} </p>
+    <p style="color: #141414">Больница: {{ doctor.medical_facility.name }}</p>
+
+
+    Запись к специалисту временно недуступна. Приносим свои извинения за доставленные неудобства.<br>
+    Для записи позвоните по телефону горячей линии:
+{{ doctor.medical_facility.contact_phone }}
+
 </body>
 </html>

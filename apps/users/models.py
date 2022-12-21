@@ -60,3 +60,6 @@ class MedicalFacility(models.Model):
 
     class Meta:
         db_table = 'medical_facility'
+
+
+
